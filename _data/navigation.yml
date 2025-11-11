@@ -16,6 +16,7 @@ main:
 
   - title: "Blog"
     url: /blog/
+
   # - title: "Talks"
   #   url: /talks/    
 
@@ -35,4 +36,4 @@ main:
   # #   url: /cv-json/
     
   # - title: "Guide"
-    url: /markdown/
+    # url: /markdown/
