@@ -14,8 +14,8 @@ main:
   - title: "Publications"
     url: /publications/
 
-  - title: "Blog"
-    url: /posts/
+  # - title: "Blog"
+  #   url: /posts/
 
   # - title: "Talks"
   #   url: /talks/    
@@ -26,8 +26,8 @@ main:
   # - title: "Publications"
   #   url: /portfolio/
         
-  # - title: "Blog Posts"
-  #   url: /year-archive/
+  - title: "Blog Posts"
+    url: /year-archive/
     
   # - title: "CV"
   #   url: /cv/
