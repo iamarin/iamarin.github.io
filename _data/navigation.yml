@@ -11,7 +11,7 @@ main:
   - title: "CV"
     url: /files/CV_IvanMARIN.pdf
 
-  - title: "Publications"
+  - title: "Research"
     url: /publications/
 
   # - title: "Blog"
@@ -26,7 +26,7 @@ main:
   # - title: "Publications"
   #   url: /portfolio/
         
-  - title: "Blog Posts"
+  - title: "Blog"
     url: /year-archive/
     
   # - title: "CV"
