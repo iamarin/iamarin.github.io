@@ -1,6 +1,6 @@
 project:
   type: website
-  # output-dir: docs
+  output-dir: docs
   # resources:
   #   - docs/CV_IvanMARIN.pdf
 
