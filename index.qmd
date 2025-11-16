@@ -24,10 +24,3 @@ PhD Candidate specializing in **competition economics** at [Universite de Bourgo
 My work combines **causal inference, machine learning, and network analysis** to study collusive behavior. I conduct econometric analysis to support antitrust enforcement and policy design.
 </div>
 
-<center>
-<p style="font-size:10pt;margin-top:1em;">
-<br> Universite de Bourgogne
-<br>Bd Dr Petitjean<br>Les Longelles <br>  21000 Dijon
-</p>
-
-</center>
