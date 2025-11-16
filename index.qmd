@@ -7,19 +7,27 @@ execute:
 about:
   template: jolla
   links:
-    - icon: github
+    - text: '<i class="bi bi-github"></i> GitHub'
       href: https://github.com/iamarin
-    - icon: linkedin
+    - text: '<i class="bi bi-linkedin"></i> LinkedIn'
       href: https://www.linkedin.com/in/ivan-abdel-marin/
-    - icon: envelope
+    - text: '<i class="bi bi-envelope"></i> Email'
       href: mailto:ivanmrn5@gmail.com
-    - icon: file-earmark-text
+    - text: '<i class="bi bi-file-earmark-pdf"></i> CV'
       href: files/CV_IvanMARIN.pdf
 ---
 
 <div style="text-align: justify;">
 
-PhD Candidate specializing in **competition economics** at [Universite de Bourgogne](https://www.ube.fr/en/home/).
+PhD Candidate specializing in **competition economics** at [Universite de Bourgogne](https://www.ube.fr/en/home/). Working at [CESAER](https://cesaer.dijon.hub.inrae.fr/)
 
 My work combines **causal inference, machine learning, and network analysis** to study collusive behavior. I conduct econometric analysis to support antitrust enforcement and policy design.
 </div>
+
+<center>
+<p style="font-size:10pt;margin-top:1em;">
+<br> Universite de Bourgogne
+<br>Bd Dr Petitjean<br>Les Longelles <br>  21000 Dijon
+</p>
+
+</center>
