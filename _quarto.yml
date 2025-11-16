@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - docs/CV_IvanMARIN.pdf
+
+website:
+  title: "Ivan Marin"
+  navbar:
+    left:
+      # - href: index.qmd
+      - research.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

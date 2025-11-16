@@ -1,0 +1,25 @@
+---
+title: "Ivan Marin"
+image: "images/bogoss.png"
+execute: 
+  echo: false
+  warning: false
+about:
+  template: jolla
+  links:
+    - icon: github
+      href: https://github.com/iamarin
+    - icon: linkedin
+      href: https://www.linkedin.com/in/ivan-abdel-marin/
+    - icon: envelope
+      href: mailto:ivanmrn5@gmail.com
+    - icon: file-earmark-text
+      href: CV_IvanMARIN.pdf
+---
+
+<div style="text-align: justify;">
+
+PhD Candidate specializing in **competition economics** at [Universite de Bourgogne](https://www.ube.fr/en/home/).
+
+My work combines **causal inference, machine learning, and network analysis** to study collusive behavior. I conduct econometric analysis to support antitrust enforcement and policy design.
+</div>
