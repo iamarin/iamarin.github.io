@@ -1,8 +1,8 @@
 project:
   type: website
   output-dir: docs
-  # resources:
-  #   - docs/CV_IvanMARIN.pdf
+  resources:
+    - files/CV_IvanMARIN.pdf
 
 website:
   title: "Ivan Marin"

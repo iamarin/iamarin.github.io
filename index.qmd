@@ -14,7 +14,7 @@ about:
     - icon: envelope
       href: mailto:ivanmrn5@gmail.com
     - icon: file-earmark-text
-      href: CV_IvanMARIN.pdf
+      href: files/CV_IvanMARIN.pdf
 ---
 
 <div style="text-align: justify;">
