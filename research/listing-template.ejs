@@ -1,0 +1,25 @@
+{{#each items}}
+<div class="pub-item">
+
+  {{#if figure}}
+  <div class="pub-figure">
+    <img src="{{figure}}" alt="Figure for {{title}}">
+  </div>
+  {{/if}}
+
+  <div class="pub-text">
+    <h3><a href="{{path}}">{{title}}</a></h3>
+
+    <div class="pub-meta">
+      <span><strong>Authors:</strong> {{authors}}</span><br>
+      <span><strong>Publication:</strong> {{publication}}</span><br>
+      <span><strong>Status:</strong> {{status}}</span>
+    </div>
+
+    {{#if abstract}}
+    <p class="pub-abstract">{{abstract}}</p>
+    {{/if}}
+  </div>
+
+</div>
+{{/each}}

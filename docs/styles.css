@@ -1,1 +1,11 @@
-/* css styles */
+/* Ensure the listing text container is left-aligned */
+p {
+  text-align: left ;
+}
+
+/* Optional: max width for readability */
+.pub-item {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}

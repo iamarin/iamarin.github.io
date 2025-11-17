@@ -1,0 +1,18 @@
+---
+title: "Antitrust market integration determinants: geographic antitrust markets for public procurement"
+authors:
+  - Ivan Marin
+abstract: "Many methods have been proposed for geographical market delineation, yet most are considered as data-intensive and technically demanding. This study operationalizes market delineation not only through price-based substitutability, but also by modeling the emergent geography of supplier relationships. We use an Exponential Random Graph model to test whether agglomeration effects, proximity mechanisms, and structural network features jointly determine where market boundaries are drawn in practice. We identify local markets based on bidding behavior in paving tenders from Quebec?s construction sector between 2012 and 2019."
+publication: "Working paper"
+url: ""
+status: "in progress"
+about:
+  template: jolla
+  links:
+    - text: '<i class="bi bi-github"></i> Repo'
+      href: https://github.com/iamarin
+    - text: '<i class="bi bi-file-earmark-pdf"></i> Working paper'
+      href: ccc
+
+---
+

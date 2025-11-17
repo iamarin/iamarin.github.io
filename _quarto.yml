@@ -8,8 +8,10 @@ website:
   title: "Ivan Marin"
   navbar:
     left:
-      # - href: index.qmd
-      - research.qmd
+      - text: "Home"
+        href: index.qmd
+      - text: "Research"
+        href: research.qmd
 
 format:
   html:

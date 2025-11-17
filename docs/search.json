@@ -9,8 +9,29 @@
   {
     "objectID": "research.html",
     "href": "research.html",
+    "title": "Ivan Marin",
+    "section": "",
+    "text": "Many methods have been proposed for geographical market delineation, yet most are considered as data-intensive and technically demanding. This study operationalizes market delineation not only through price-based substitutability, but also by modeling the emergent geography of supplier relationships. We use an Exponential Random Graph model to test whether agglomeration effects, proximity mechanisms, and structural network features jointly determine where market boundaries are drawn in practice. We identify local markets based on bidding behavior in paving tenders from Quebec?s construction sector between 2012 and 2019.\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "research.html#work-in-progress",
+    "href": "research.html#work-in-progress",
+    "title": "Ivan Marin",
+    "section": "",
+    "text": "Many methods have been proposed for geographical market delineation, yet most are considered as data-intensive and technically demanding. This study operationalizes market delineation not only through price-based substitutability, but also by modeling the emergent geography of supplier relationships. We use an Exponential Random Graph model to test whether agglomeration effects, proximity mechanisms, and structural network features jointly determine where market boundaries are drawn in practice. We identify local markets based on bidding behavior in paving tenders from Quebec?s construction sector between 2012 and 2019.\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "research.html#published-work",
+    "href": "research.html#published-work",
     "title": "Research",
     "section": "",
-    "text": "About this site"
+    "text": "No matching items"
+  },
+  {
+    "objectID": "research/paper1.html",
+    "href": "research/paper1.html",
+    "title": "Market delineation",
+    "section": "",
+    "text": "Links\n{{#each about.links}} - {{{text}}} {{/each}}"
   }
 ]

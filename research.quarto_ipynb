@@ -1,0 +1,59 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"\"\n",
+        "css: styles.css\n",
+        "listing:\n",
+        "#   - id: published\n",
+        "#     contents: \"research/*.qmd\"\n",
+        "#     include:\n",
+        "#       status: \"published\"\n",
+        "#     type: default\n",
+        "#     sort: \"date desc\"\n",
+        "\n",
+        "  - id: wip\n",
+        "    contents: \"research/*.qmd\"\n",
+        "    include:\n",
+        "      status: \"in progress\"\n",
+        "    type: default\n",
+        "    # template: research/listing-template.ejs\n",
+        "    sort: \"date desc\"\n",
+        "---\n",
+        "\n",
+        "```{css, echo = FALSE}\n",
+        ".justify {\n",
+        "  text-align: left \n",
+        "  }\n",
+        "```\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "<!-- ## Published Work\n",
+        "\n",
+        ":::{#published}\n",
+        "::: -->\n",
+        "\n",
+        "## Work in Progress\n",
+        "\n",
+        ":::{#wip}\n",
+        ":::"
+      ],
+      "id": "e672996e"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/ivan/Library/Python/3.13/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

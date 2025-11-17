@@ -1,5 +1,29 @@
 ---
-title: "Research"
+title: ""
+css: styles.css
+listing:
+#   - id: published
+#     contents: "research/*.qmd"
+#     include:
+#       status: "published"
+#     type: default
+#     sort: "date desc"
+
+  - id: wip
+    contents: "research/*.qmd"
+    include:
+      status: "in progress"
+    type: default
+    # template: research/listing-template.ejs
+    sort: "date desc"
 ---
 
+<!-- ## Published Work
 
+:::{#published}
+::: -->
+
+## Work in Progress
+
+:::{#wip}
+:::
