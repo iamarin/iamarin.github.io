@@ -16,6 +16,8 @@ listing:
     type: default
     # template: research/listing-template.ejs
     sort: "date desc"
+page-layout: full
+title-block-banner: true
 ---
 
 <!-- ## Published Work

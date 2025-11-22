@@ -6,7 +6,7 @@ project:
 
 website:
   title: "Ivan Marin"
-  site-url: "https://www.elcontrafactual.fr"
+  # site-url: "https://www.elcontrafactual.fr"
   repo-url: https://github.com/iamarin/iamarin.github.io
   navbar:
     left:
