@@ -1,11 +1,60 @@
-/* Ensure the listing text container is left-aligned */
 p {
-  text-align: left ;
+  text-align: left;
 }
 
-/* Optional: max width for readability */
-.pub-item {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+.paper-entry {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.paper-entry:last-child {
+  border-bottom: none;
+}
+
+.paper-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.paper-title a {
+  color: #222;
+  text-decoration: none;
+}
+
+.paper-title a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.paper-meta {
+  font-size: 0.88rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 0.6rem;
+  margin-top: 0;
+}
+
+.paper-abstract {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 0.6rem;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.paper-links {
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+}
+
+.paper-links a {
+  color: #0066cc;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.paper-links a:hover {
+  text-decoration: underline;
 }
