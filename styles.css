@@ -2,6 +2,8 @@ p {
   text-align: left;
 }
 
+/* ── Paper entries ─────────────────────────────────────────── */
+
 .paper-entry {
   margin-bottom: 2.5rem;
   padding-bottom: 2rem;
@@ -15,7 +17,7 @@ p {
 .paper-title {
   font-size: 1.05rem;
   font-weight: 600;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .paper-title a {
@@ -28,33 +30,75 @@ p {
   text-decoration: underline;
 }
 
-.paper-meta {
+/* venue · status · co-authors line */
+.paper-info {
   font-size: 0.88rem;
-  color: #666;
+  color: #555;
   font-style: italic;
-  margin-bottom: 0.6rem;
   margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
-.paper-abstract {
+.paper-info a {
+  color: #555;
+  text-decoration: none;
+}
+
+.paper-info a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+/* ── Abstract truncation ───────────────────────────────────── */
+
+.paper-title a.abstract-toggle {
+  cursor: pointer;
+}
+
+.paper-abstract-wrap {
+  margin-bottom: 0.6rem;
+}
+
+.paper-abstract-wrap .abstract-body {
   font-size: 0.9rem;
   color: #444;
-  margin-bottom: 0.6rem;
   text-align: justify;
-  line-height: 1.6;
+  line-height: 1.65;
+  margin-bottom: 0;
+  /* truncate to ~5 lines (≈100 words) */
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
+.paper-abstract-wrap.expanded .abstract-body {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
+
+/* ── Link buttons ──────────────────────────────────────────── */
+
 .paper-links {
-  font-size: 0.85rem;
-  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .paper-links a {
-  color: #0066cc;
+  color: #444;
   text-decoration: none;
-  margin-right: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  padding: 1px 8px;
+  transition: background 0.15s, color 0.15s;
 }
 
 .paper-links a:hover {
-  text-decoration: underline;
+  background: #0066cc;
+  color: #fff;
+  border-color: #0066cc;
 }
