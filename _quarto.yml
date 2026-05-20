@@ -12,8 +12,11 @@ website:
     left:
       - text: "Home"
         href: index.qmd
+      - text: "What I do?"
+        href: outreach.qmd
       - text: "Research"
         href: research.qmd
+      
 
 format:
   html:
