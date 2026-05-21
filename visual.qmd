@@ -1,0 +1,322 @@
+---
+title: ""
+page-layout: full
+toc: false
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+#quarto-content { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+main.content, #quarto-document-content { padding: 0 !important; }
+.quarto-title-block { display: none !important; }
+body { overflow-x: hidden; background: #060f0e; }
+
+.sr { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.sr.from-left  { transform: translateX(-60px); }
+.sr.from-right { transform: translateX( 60px); }
+.sr.visible    { opacity: 1 !important; transform: none !important; }
+
+.paper-strip {
+width: 100%;
+min-height: 44vh;
+display: flex;
+align-items: center;
+padding: 5rem 2rem;
+position: relative;
+overflow: hidden;
+border-bottom: 1px solid rgba(42,157,143,.07);
+}
+.paper-strip:nth-child(odd)  { background: #0a1f1e; }
+.paper-strip:nth-child(even) { background: #091b1a; }
+.paper-strip.left  { justify-content: flex-start; }
+.paper-strip.right { justify-content: flex-end; }
+.paper-strip.left  .strip-inner { margin-left: 9%; }
+.paper-strip.right .strip-inner { margin-right: 9%; }
+.strip-inner { max-width: 480px; }
+
+.v-accent {
+position: absolute;
+top: 10%; bottom: 10%;
+width: 2px;
+background: linear-gradient(to bottom, transparent, #2a9d8f 40%, #2a9d8f 60%, transparent);
+border-radius: 2px;
+}
+.paper-strip.left  .v-accent { left: 5.5%; }
+.paper-strip.right .v-accent { right: 5.5%; }
+
+.paper-strip::after {
+content: '';
+position: absolute;
+bottom: 0; left: 0; right: 0;
+height: 1px;
+background: linear-gradient(90deg, transparent, rgba(42,157,143,.3), transparent);
+opacity: 0;
+transition: opacity .4s;
+}
+.paper-strip:hover::after { opacity: 1; }
+
+.strip-tag {
+font-family: 'JetBrains Mono', monospace;
+font-size: .7rem;
+letter-spacing: .2em;
+text-transform: uppercase;
+color: #2a9d8f;
+font-weight: 700;
+margin-bottom: .9rem;
+}
+.strip-tag::before { content: '> '; opacity: .5; }
+
+.strip-title {
+font-size: clamp(1.35rem, 2.8vw, 2.1rem);
+font-weight: 800;
+color: #fff;
+line-height: 1.18;
+letter-spacing: -.022em;
+margin: 0 0 1.2rem;
+}
+.strip-title em { color: #2a9d8f; font-style: normal; }
+
+.strip-meta {
+font-family: 'JetBrains Mono', monospace;
+font-size: .78rem;
+color: rgba(255,255,255,.32);
+letter-spacing: .04em;
+}
+
+.about-section {
+background: #060f0e;
+padding: 6rem 2rem;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.about-box {
+max-width: 720px;
+width: 100%;
+border: 1px solid rgba(42,157,143,.25);
+border-radius: 18px;
+padding: 3rem 3.5rem;
+background: rgba(42,157,143,.03);
+box-shadow: 0 0 50px rgba(42,157,143,.06), inset 0 1px 0 rgba(42,157,143,.12);
+position: relative;
+}
+.about-box::before {
+content: '';
+position: absolute;
+inset: -1px;
+border-radius: 18px;
+background: linear-gradient(135deg, rgba(42,157,143,.18) 0%, transparent 55%);
+pointer-events: none;
+}
+.about-label {
+font-family: 'JetBrains Mono', monospace;
+font-size: .7rem;
+letter-spacing: .22em;
+text-transform: uppercase;
+color: #2a9d8f;
+font-weight: 700;
+margin-bottom: 1.4rem;
+display: block;
+}
+.about-box p {
+font-size: 1.08rem;
+color: rgba(255,255,255,.75);
+line-height: 1.85;
+margin: 0;
+}
+.about-box strong { color: #2a9d8f; font-weight: 700; }
+
+.network-section {
+position: relative;
+background: #060f0e;
+height: 520px;
+overflow: hidden;
+}
+#net-canvas {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+display: block;
+}
+.net-overlay {
+position: absolute;
+inset: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+pointer-events: none;
+z-index: 2;
+}
+.net-label {
+font-family: 'JetBrains Mono', monospace;
+font-size: .68rem;
+letter-spacing: .28em;
+text-transform: uppercase;
+color: rgba(42,157,143,.6);
+margin-bottom: .9rem;
+}
+.net-title {
+font-size: clamp(1.5rem, 3vw, 2.6rem);
+font-weight: 800;
+color: #fff;
+letter-spacing: -.02em;
+text-align: center;
+}
+.net-title span { color: #2a9d8f; }
+.net-status {
+margin-top: 1.2rem;
+font-family: 'JetBrains Mono', monospace;
+font-size: .68rem;
+letter-spacing: .14em;
+color: rgba(42,157,143,.5);
+display: flex;
+align-items: center;
+gap: .5rem;
+}
+.net-dot {
+width: 6px; height: 6px;
+border-radius: 50%;
+background: #2a9d8f;
+animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(42,157,143,.4); }
+50%      { opacity: .6; box-shadow: 0 0 0 5px rgba(42,157,143,0); }
+}
+
+@media (max-width: 640px) {
+.paper-strip.left  .strip-inner,
+.paper-strip.right .strip-inner { margin: 0 auto; }
+.v-accent { display: none; }
+.about-box { padding: 2rem 1.6rem; }
+}
+</style>
+
+<section class="paper-strip left">
+<div class="v-accent"></div>
+<div class="strip-inner sr from-left">
+<p class="strip-tag">Energy Markets</p>
+<h2 class="strip-title">Machine Learning for Detecting<br><em>Collusion &amp; Capacity Withholding</em><br>in Wholesale Electricity Markets</h2>
+<p class="strip-meta">With Martin Huber &amp; Jeremy Proz &nbsp;·&nbsp; Forthcoming</p>
+</div>
+</section>
+
+<section class="paper-strip right">
+<div class="v-accent"></div>
+<div class="strip-inner sr from-right">
+<p class="strip-tag">Market Geography</p>
+<h2 class="strip-title">The Spatial Structure of<br><em>Competitive Interactions</em><br>in Public Procurement Networks</h2>
+<p class="strip-meta">With Julie LeGallo &amp; Jean Dubé &nbsp;·&nbsp; Working Paper</p>
+</div>
+</section>
+
+<section class="paper-strip left">
+<div class="v-accent"></div>
+<div class="strip-inner sr from-left">
+<p class="strip-tag">Antitrust Policy</p>
+<h2 class="strip-title">Business as Usual:<br>The Case of the<br><em>Antitrust Inquiry in Quebec</em></h2>
+<p class="strip-meta">Job Market Paper</p>
+</div>
+</section>
+
+<section class="about-section">
+<div class="about-box sr">
+<span class="about-label">// Who I Am</span>
+<p>I'm a <strong>PhD Candidate</strong> specialising in <strong>competition economics</strong> at Université de Bourgogne, working at CESAER. My work combines <strong>causal inference, machine learning, and network analysis</strong> to study collusive behaviour. I conduct econometric analysis to support <strong>antitrust enforcement and policy design</strong>.</p>
+</div>
+</section>
+
+<section class="network-section">
+<canvas id="net-canvas"></canvas>
+<div class="net-overlay">
+<p class="net-label">// Research Network</p>
+<h2 class="net-title">Competition · <span>Markets</span> · Enforcement</h2>
+<div class="net-status">
+<span class="net-dot"></span>
+Network Active
+</div>
+</div>
+</section>
+
+<script>
+(function () {
+var io = new IntersectionObserver(function (entries) {
+entries.forEach(function (e) {
+if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+});
+}, { threshold: 0.12 });
+document.querySelectorAll('.sr').forEach(function (el) { io.observe(el); });
+})();
+
+(function () {
+var canvas = document.getElementById('net-canvas');
+var ctx    = canvas.getContext('2d');
+var nodes  = [];
+var N      = 72;
+var LINK   = 145;
+var R      = '42,157,143';
+
+function resize() {
+canvas.width  = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+}
+
+function init() {
+resize();
+nodes = [];
+for (var i = 0; i < N; i++) {
+nodes.push({
+x  : Math.random() * canvas.width,
+y  : Math.random() * canvas.height,
+vx : (Math.random() - .5) * .55,
+vy : (Math.random() - .5) * .55,
+r  : Math.random() * 2.2 + 1.4
+});
+}
+}
+
+function tick() {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+for (var i = 0; i < nodes.length; i++) {
+for (var j = i + 1; j < nodes.length; j++) {
+var dx = nodes[i].x - nodes[j].x;
+var dy = nodes[i].y - nodes[j].y;
+var d  = Math.sqrt(dx*dx + dy*dy);
+if (d < LINK) {
+var a = (1 - d / LINK) * .45;
+ctx.beginPath();
+ctx.moveTo(nodes[i].x, nodes[i].y);
+ctx.lineTo(nodes[j].x, nodes[j].y);
+ctx.strokeStyle = 'rgba(' + R + ',' + a + ')';
+ctx.lineWidth   = .9;
+ctx.stroke();
+}
+}
+}
+ctx.shadowBlur  = 8;
+ctx.shadowColor = 'rgba(' + R + ',.55)';
+nodes.forEach(function (n) {
+ctx.beginPath();
+ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+ctx.fillStyle = 'rgba(' + R + ',.82)';
+ctx.fill();
+});
+ctx.shadowBlur = 0;
+nodes.forEach(function (n) {
+n.x += n.vx;
+n.y += n.vy;
+if (n.x < 0 || n.x > canvas.width)  n.vx *= -1;
+if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+});
+requestAnimationFrame(tick);
+}
+
+window.addEventListener('resize', init);
+init();
+tick();
+})();
+</script>

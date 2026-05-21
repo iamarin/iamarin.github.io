@@ -167,7 +167,7 @@ body { overflow-x: hidden; }
 <div class="o-chapter-inner">
 <div class="o-ch-header sr from-left">
 <p class="o-ch-tag">Chapter 03  Antitrust Policy</p>
-<h2>Did Intervention Work <br>or do they Keep Business as Usual?</h2>
+<h2>Did Intervention Work <br>or Do Firms Keep Business as Usual?</h2>
 <p class="o-ch-sub">Job Market Paper</p>
 </div>
 <div class="o-ch-divider sr"></div>
