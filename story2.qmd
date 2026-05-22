@@ -1,0 +1,760 @@
+---
+title: ""
+page-layout: full
+toc: false
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+#quarto-content { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+main.content, #quarto-document-content { padding: 0 !important; }
+.quarto-title-block { display: none !important; }
+body { overflow-x: hidden; background: #060f0e; }
+
+.sr { opacity: 0; transform: translateY(32px); transition: opacity 0.85s ease, transform 0.85s ease; }
+.sr.from-left  { transform: translateX(-55px); }
+.sr.from-right { transform: translateX( 55px); }
+.sr.scale-in   { transform: scale(.96) translateY(14px); }
+.sr.d1 { transition-delay: .1s; }
+.sr.d2 { transition-delay: .2s; }
+.sr.d3 { transition-delay: .3s; }
+.sr.visible { opacity: 1 !important; transform: none !important; }
+
+/* ── Terminal hero ─────────────────────────────────────────── */
+.term-hero {
+  min-height: 96vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(155deg, #060f0e 0%, #0a1f1e 55%, #0d2e2b 100%);
+  padding: 7rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.term-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 55% 35%, rgba(42,157,143,.13) 0%, transparent 65%);
+}
+
+.term-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: #2a9d8f;
+  font-weight: 700;
+  margin-bottom: 2.4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.term-window {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 680px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08),
+    0 32px 80px rgba(0,0,0,.7),
+    0 0 60px rgba(42,157,143,.1);
+  text-align: left;
+}
+
+/* title bar */
+.term-bar {
+  background: #1e2b2a;
+  padding: .65rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.term-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.term-dot.r { background: #ff5f57; }
+.term-dot.y { background: #febc2e; }
+.term-dot.g { background: #28c840; }
+.term-bar-title {
+  flex: 1;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem;
+  color: rgba(255,255,255,.35);
+  letter-spacing: .05em;
+  margin-right: 36px; /* offset the 3 dots */
+}
+
+/* body */
+.term-body {
+  background: #0d1a19;
+  padding: 1.6rem 1.8rem 2rem;
+  min-height: 220px;
+}
+
+.term-prompt-line {
+  display: flex;
+  gap: .6rem;
+  margin-bottom: .1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(.82rem, 1.6vw, 1rem);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.term-prompt {
+  color: #2a9d8f;
+  flex-shrink: 0;
+  user-select: none;
+}
+.term-text {
+  color: rgba(255,255,255,.88);
+}
+.term-text .hl { color: #2a9d8f; }
+
+.term-cursor {
+  display: inline-block;
+  width: .55em;
+  height: 1.1em;
+  background: #2a9d8f;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: blink 1.1s step-start infinite;
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+.term-scroll {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .55rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.22);
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+.term-scroll::after {
+  content: '';
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(42,157,143,.6), transparent);
+  animation: scroll-pulse 2.4s ease-in-out infinite;
+}
+@keyframes scroll-pulse {
+  0%,100% { opacity: .3; transform: scaleY(1); }
+  50%      { opacity: 1;  transform: scaleY(1.1); }
+}
+
+/* ── About box ─────────────────────────────────────────────── */
+.about-section {
+  background: #060f0e;
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+.about-box {
+  max-width: 720px;
+  width: 100%;
+  border: 1px solid rgba(42,157,143,.22);
+  border-radius: 18px;
+  padding: 3rem 3.5rem;
+  background: rgba(42,157,143,.03);
+  box-shadow: 0 0 55px rgba(42,157,143,.06), inset 0 1px 0 rgba(42,157,143,.1);
+  position: relative;
+}
+.about-box::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(42,157,143,.16) 0%, transparent 55%);
+  pointer-events: none;
+}
+.about-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #2a9d8f;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.about-hook {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+.about-box p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.7);
+  line-height: 1.88;
+  margin: 0;
+}
+.about-box strong { color: #2a9d8f; }
+
+/* ── Network ───────────────────────────────────────────────── */
+.network-section {
+  position: relative;
+  background: #040c0b;
+  height: 480px;
+  overflow: hidden;
+}
+#net-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.net-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+.net-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .66rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(42,157,143,.55);
+  margin-bottom: .8rem;
+}
+.net-title {
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.02em;
+  text-align: center;
+}
+.net-title span { color: #2a9d8f; }
+.net-status {
+  margin-top: 1.1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .66rem;
+  letter-spacing: .14em;
+  color: rgba(42,157,143,.45);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.net-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #2a9d8f;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(42,157,143,.5); }
+  50%      { opacity: .55; box-shadow: 0 0 0 5px rgba(42,157,143,0); }
+}
+
+/* ── Paper strips ──────────────────────────────────────────── */
+.paper-strip {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 5.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(42,157,143,.06);
+}
+.paper-strip:nth-child(odd)  { background: #0a1f1e; }
+.paper-strip:nth-child(even) { background: #091b1a; }
+.paper-strip.left  { justify-content: flex-start; }
+.paper-strip.right { justify-content: flex-end; }
+.paper-strip.left  .strip-inner { margin-left: 9%; }
+.paper-strip.right .strip-inner { margin-right: 9%; }
+.strip-inner { max-width: 540px; }
+
+.v-accent {
+  position: absolute;
+  top: 8%; bottom: 8%;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #2a9d8f 40%, #2a9d8f 60%, transparent);
+  border-radius: 2px;
+}
+.paper-strip.left  .v-accent { left: 5.5%; }
+.paper-strip.right .v-accent { right: 5.5%; }
+
+.paper-strip::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(42,157,143,.25), transparent);
+  opacity: 0;
+  transition: opacity .4s;
+}
+.paper-strip:hover::after { opacity: 1; }
+
+.strip-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #2a9d8f;
+  font-weight: 700;
+  margin-bottom: .85rem;
+}
+.strip-tag::before { content: '> '; opacity: .45; }
+
+.strip-title {
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.18;
+  letter-spacing: -.022em;
+  margin: 0 0 1.6rem;
+}
+.strip-title em { color: #2a9d8f; font-style: normal; }
+
+.strip-sub {
+  font-size: .82rem;
+  color: rgba(255,255,255,.28);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: .04em;
+  margin-bottom: 1.6rem;
+}
+
+.strip-insight {
+  background: rgba(4,12,11,.85);
+  border: 1px solid rgba(42,157,143,.18);
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1.6rem;
+  position: relative;
+  overflow: hidden;
+}
+.strip-insight::before {
+  content: '\201C';
+  position: absolute;
+  top: -.2em; left: .2em;
+  font-size: 9rem;
+  color: rgba(42,157,143,.06);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+.strip-insight p {
+  font-size: 1rem;
+  color: rgba(255,255,255,.78);
+  line-height: 1.65;
+  font-style: italic;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.strip-insight strong { color: #2a9d8f; font-style: normal; }
+
+.strip-body p {
+  font-size: .98rem;
+  color: rgba(255,255,255,.55);
+  line-height: 1.82;
+  margin: 0 0 .9rem;
+}
+.strip-body p:last-child { margin-bottom: 0; }
+.strip-body strong { color: rgba(255,255,255,.82); }
+
+.stat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1.8rem;
+}
+.stat-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .64rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #2a9d8f;
+  border: 1px solid rgba(42,157,143,.28);
+  border-radius: 6px;
+  padding: .32rem .7rem;
+  background: rgba(42,157,143,.05);
+}
+
+/* ── Closing ───────────────────────────────────────────────── */
+.closing-section {
+  background: linear-gradient(150deg, #060f0e 0%, #0d2e2b 100%);
+  padding: 7rem 2rem;
+  text-align: center;
+}
+.closing-inner {
+  max-width: 660px;
+  margin: 0 auto;
+}
+.closing-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #2a9d8f;
+  display: block;
+  margin-bottom: 1.3rem;
+}
+.closing-inner h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -.025em;
+  margin-bottom: 1.5rem;
+}
+.closing-inner p {
+  font-size: 1.08rem;
+  color: rgba(255,255,255,.58);
+  line-height: 1.82;
+  margin: 0;
+}
+.closing-inner strong { color: rgba(255,255,255,.88); }
+
+@media (max-width: 640px) {
+  .paper-strip.left  .strip-inner,
+  .paper-strip.right .strip-inner { margin: 0 auto; }
+  .v-accent { display: none; }
+  .about-box { padding: 2rem 1.6rem; }
+  .term-body { padding: 1.2rem 1.2rem 1.6rem; }
+}
+</style>
+
+<!-- ── Terminal hero ───────────────────────────────────────── -->
+<section class="term-hero">
+<div style="position:relative;z-index:1;width:100%;max-width:680px;display:flex;flex-direction:column;align-items:center;">
+<p class="term-eyebrow">// A Story About Markets, Conspiration and Key Players</p>
+<div class="term-window">
+<div class="term-bar">
+<span class="term-dot r"></span>
+<span class="term-dot y"></span>
+<span class="term-dot g"></span>
+<span class="term-bar-title">detective.sh — bash</span>
+</div>
+<div class="term-body" id="term-body"></div>
+</div>
+<div class="term-scroll">Scroll to explore</div>
+</div>
+</section>
+
+<!-- ── About box ──────────────────────────────────────────── -->
+<section class="about-section">
+<div class="about-box sr">
+<span class="about-label">// The Detective</span>
+<p class="about-hook">I'm that detective </p>
+<p>I'm an economist who studies <strong>how companies behave when they're supposed to compete, and what happens when they don't</strong> . My research focuses on two industries that affect everyone: electricity and construction. Here is what I've found.</p>
+</div>
+</section>
+
+<!-- ── Network animation ──────────────────────────────────── -->
+<section class="network-section">
+<canvas id="net-canvas"></canvas>
+<div class="net-overlay">
+<p class="net-label">// Research Network</p>
+<h2 class="net-title">Competition · <span>Markets</span> · Enforcement</h2>
+<div class="net-status">
+<span class="net-dot"></span>
+Looking for the key player...
+</div>
+</div>
+</section>
+
+<!-- ── Paper 01 · Energy Markets (left) ──────────────────── -->
+<section class="paper-strip left">
+<div class="v-accent"></div>
+<div class="strip-inner">
+<p class="strip-tag sr from-left">Energy Markets</p>
+<h2 class="strip-title sr from-left">Can AI Catch <em>Cheaters</em><br>in Electricity Markets?</h2>
+<p class="strip-sub sr">With Martin Huber &amp; Jeremy Proz &nbsp;·&nbsp; Forthcoming</p>
+<div class="strip-insight sr scale-in">
+<p>An AI trained to spot suspicious patterns caught electricity cartels that took investigators years to uncover — <strong>automatically, and far faster.</strong></p>
+</div>
+<div class="strip-body sr">
+<p><strong>The problem.</strong> Energy companies sometimes secretly agree to push prices up — either by coordinating their bids or by deliberately holding back power they could provide, creating fake scarcity. These schemes cost consumers billions. They're hard to detect, and traditional investigations are slow and expensive.</p>
+<p><strong>What we did.</strong> We applied machine learning — the same kind of technology that filters your spam or flags a suspicious credit card transaction — to bidding records from the Italian electricity market. The algorithm scans thousands of bids and flags suspicious patterns automatically. It successfully identified two known cartels. A proof of concept that automated surveillance could catch cheaters earlier, and at far lower cost.</p>
+</div>
+<div class="stat-chips sr d1">
+<span class="stat-chip">2 cartel cases tested</span>
+<span class="stat-chip">Italian electricity market</span>
+<span class="stat-chip">Supervised ML</span>
+</div>
+</div>
+</section>
+
+<!-- ── Paper 02 · Market Geography (right) ───────────────── -->
+<section class="paper-strip right">
+<div class="v-accent"></div>
+<div class="strip-inner">
+<p class="strip-tag sr from-right">Market Geography</p>
+<h2 class="strip-title sr from-right">Real Competition Doesn't<br>Follow the <em>Official Map</em></h2>
+<p class="strip-sub sr">With Julie LeGallo &amp; Jean Dubé &nbsp;·&nbsp; Working Paper</p>
+<div class="strip-insight sr scale-in">
+<p>Companies don't compete along political borders. Mapping real competition revealed <strong>47 natural markets that look nothing like the official ones</strong> — and some regions are far less competitive than regulators think.</p>
+</div>
+<div class="strip-body sr">
+<p><strong>The problem.</strong> When regulators decide whether a market is competitive, they typically draw boundaries using official regions — cities, provinces. But do companies actually compete across those lines? Or do they have invisible territories shaped by distance and roads?</p>
+<p><strong>What we found.</strong> Using eight years of bidding data from Québec's road paving sector, we built a map of where real competition happens. The result: 47 natural market areas that don't match the official map at all. Distance is everything — double the distance between two companies and you roughly halve the chance they'll ever compete. Regulators drawing the wrong boundaries may be missing local monopolies hiding in plain sight.</p>
+</div>
+<div class="stat-chips sr d1">
+<span class="stat-chip">47 markets discovered</span>
+<span class="stat-chip">8 years of data</span>
+<span class="stat-chip">Québec</span>
+</div>
+</div>
+</section>
+
+<!-- ── Paper 03 · Antitrust Policy (left) ────────────────── -->
+<section class="paper-strip left">
+<div class="v-accent"></div>
+<div class="strip-inner">
+<p class="strip-tag sr from-left">Antitrust Policy</p>
+<h2 class="strip-title sr from-left">When Authorities Crack Down —<br>Does It <em>Actually Last?</em></h2>
+<p class="strip-sub sr">Job Market Paper</p>
+<div class="strip-insight sr scale-in">
+<p>Cracking down on a cartel changed behaviour — but the effects were <strong>temporary, not permanent.</strong> Breaking a cartel matters, but it may not be enough on its own.</p>
+</div>
+<div class="strip-body sr">
+<p><strong>The problem.</strong> For years, road construction companies in Québec secretly divided up public contracts among themselves — a cartel that cost taxpayers hundreds of millions of dollars. When authorities launched an investigation and dismantled it, a key question remained: did the crackdown actually make the market more competitive in the long run?</p>
+<p><strong>What I found.</strong> I tracked bidding behaviour across Québec municipalities for 12 years — before, during, and after the intervention. The crackdown worked at first: bids became more competitive. But over time, the market drifted back toward old patterns. The cartel was broken, but the underlying conditions — geographic fragmentation, few local players, high barriers to entry — were still there. One-time enforcement may not be enough without structural reform.</p>
+</div>
+<div class="stat-chips sr d1">
+<span class="stat-chip">12 years tracked</span>
+<span class="stat-chip">Hundreds of municipalities</span>
+<span class="stat-chip">Job Market Paper</span>
+</div>
+</div>
+</section>
+
+<!-- ── Closing ─────────────────────────────────────────────── -->
+<section class="closing-section">
+<div class="closing-inner sr">
+<span class="closing-tag">// Why This Matters</span>
+<h2>Markets Are Not Neutral</h2>
+<p>Competition affects all of us — through electricity bills, road quality, and how public money gets spent. <strong>When companies cheat, we all pay.</strong> My research shows these problems can be detected with new tools, that enforcement can help, and that we still have much to learn about keeping markets genuinely open.</p>
+</div>
+</section>
+
+<script>
+/* ── Scroll-reveal ──────────────────────────────────────── */
+(function () {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.sr').forEach(function (el) { io.observe(el); });
+})();
+
+/* ── Terminal typewriter ────────────────────────────────── */
+(function () {
+  var LINES = [
+    { prompt: '$',  text: 'run detect-cartel --mode investigation',  delay: 0,    speed: 42, pause: 520 },
+    { prompt: '>',  text: '',                                          delay: 0,    speed: 0,  pause: 180 },
+    { prompt: '>',  text: 'Imagine you organise a contest',           delay: 0,    speed: 38, pause: 420 },
+    { prompt: '>',  text: 'The same players always seem to win … again and again.', delay: 0, speed: 36, pause: 480 },
+    { prompt: '>',  text: 'You tell yourself it might be normal…', delay: 0,  speed: 36, pause: 380 },
+    { prompt: '>',  text: 'But there are some patterns, something feels off,', delay: 0, speed: 34, pause: 160 },
+    { prompt: '>',  text: 'noncompetitive allegations emerge',         delay: 0,    speed: 34, pause: 540 },
+    { prompt: '>',  text: '',                                          delay: 0,    speed: 0,  pause: 220 },
+    { prompt: '>',  text: 'So you call a detective…',             delay: 0,    speed: 38, pause: 0   }
+  ];
+
+  var HIGHLIGHT_WORDS = ['patterns', 'noncompetitive', 'detective…', 'again and again.'];
+
+  var body = document.getElementById('term-body');
+
+  function escapeHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function highlightText(raw) {
+    var escaped = escapeHtml(raw);
+    HIGHLIGHT_WORDS.forEach(function(w) {
+      escaped = escaped.replace(escapeHtml(w), '<span class="hl">' + escapeHtml(w) + '</span>');
+    });
+    return escaped;
+  }
+
+  /* build a committed (fully typed) line row */
+  function addCommittedLine(prompt, text) {
+    var row = document.createElement('div');
+    row.className = 'term-prompt-line';
+    var ps = document.createElement('span');
+    ps.className = 'term-prompt';
+    ps.textContent = prompt;
+    var ts = document.createElement('span');
+    ts.className = 'term-text';
+    ts.innerHTML = highlightText(text);
+    row.appendChild(ps);
+    row.appendChild(ts);
+    body.appendChild(row);
+  }
+
+  /* type a single line, return Promise that resolves after pause */
+  function typeLine(lineObj) {
+    return new Promise(function(resolve) {
+      var row = document.createElement('div');
+      row.className = 'term-prompt-line';
+
+      var ps = document.createElement('span');
+      ps.className = 'term-prompt';
+      ps.textContent = lineObj.prompt;
+
+      var ts = document.createElement('span');
+      ts.className = 'term-text';
+
+      var cur = document.createElement('span');
+      cur.className = 'term-cursor';
+
+      row.appendChild(ps);
+      row.appendChild(ts);
+      row.appendChild(cur);
+      body.appendChild(row);
+      body.scrollTop = body.scrollHeight;
+
+      /* empty line — skip typing */
+      if (!lineObj.text) {
+        setTimeout(function() {
+          cur.remove();
+          resolve();
+        }, lineObj.pause || 200);
+        return;
+      }
+
+      var i = 0;
+      var full = lineObj.text;
+
+      function tick() {
+        if (i <= full.length) {
+          ts.innerHTML = highlightText(full.slice(0, i));
+          i++;
+          body.scrollTop = body.scrollHeight;
+          setTimeout(tick, lineObj.speed + (Math.random() * 18 - 9));
+        } else {
+          /* typing done — leave cursor blinking through pause, then remove it */
+          setTimeout(function() {
+            cur.remove();
+            resolve();
+          }, lineObj.pause);
+        }
+      }
+      setTimeout(tick, lineObj.delay || 0);
+    });
+  }
+
+  /* chain all lines sequentially */
+  async function runTerminal() {
+    for (var k = 0; k < LINES.length; k++) {
+      await typeLine(LINES[k]);
+    }
+    /* final blinking cursor on last line */
+    var last = body.lastElementChild;
+    if (last) {
+      var finalCur = document.createElement('span');
+      finalCur.className = 'term-cursor';
+      last.appendChild(finalCur);
+    }
+  }
+
+  /* start when hero enters viewport (or immediately if already visible) */
+  var started = false;
+  var heroObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !started) {
+        started = true;
+        heroObs.disconnect();
+        setTimeout(runTerminal, 400);
+      }
+    });
+  }, { threshold: 0.2 });
+  heroObs.observe(document.querySelector('.term-hero'));
+})();
+
+/* ── Network canvas ─────────────────────────────────────── */
+(function () {
+  var canvas = document.getElementById('net-canvas');
+  var ctx    = canvas.getContext('2d');
+  var nodes  = [];
+  var N      = 68;
+  var LINK   = 148;
+  var R      = '42,157,143';
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  function init() {
+    resize();
+    nodes = [];
+    for (var i = 0; i < N; i++) {
+      nodes.push({
+        x  : Math.random() * canvas.width,
+        y  : Math.random() * canvas.height,
+        vx : (Math.random() - .5) * .52,
+        vy : (Math.random() - .5) * .52,
+        r  : Math.random() * 2.2 + 1.4
+      });
+    }
+  }
+
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < nodes.length; i++) {
+      for (var j = i + 1; j < nodes.length; j++) {
+        var dx = nodes[i].x - nodes[j].x;
+        var dy = nodes[i].y - nodes[j].y;
+        var d  = Math.sqrt(dx*dx + dy*dy);
+        if (d < LINK) {
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = 'rgba(' + R + ',' + ((1 - d/LINK) * .42) + ')';
+          ctx.lineWidth   = .85;
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.shadowBlur  = 8;
+    ctx.shadowColor = 'rgba(' + R + ',.5)';
+    nodes.forEach(function (n) {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + R + ',.8)';
+      ctx.fill();
+    });
+    ctx.shadowBlur = 0;
+    nodes.forEach(function (n) {
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < 0 || n.x > canvas.width)  n.vx *= -1;
+      if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+    });
+    requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('resize', init);
+  init();
+  tick();
+})();
+</script>
