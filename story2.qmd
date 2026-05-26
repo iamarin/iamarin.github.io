@@ -487,7 +487,7 @@ Looking for the key player...
 <h2 class="strip-title sr from-left">Can AI Catch <em>Cheaters</em><br>in Electricity Markets?</h2>
 <p class="strip-sub sr">With Martin Huber &amp; Jeremy Proz &nbsp;·&nbsp; Forthcoming</p>
 <div class="strip-insight sr scale-in">
-<p>An AI trained to spot suspicious patterns caught electricity cartels that took investigators years to uncover — <strong>automatically, and far faster.</strong></p>
+<p>An AI trained to spot suspicious patterns caught electricity cartels that took investigators years to uncover. It did so <strong>automatically, and far faster.</strong></p>
 </div>
 <div class="strip-body sr">
 <p><strong>The problem.</strong> Energy companies sometimes secretly agree to push prices up — either by coordinating their bids or by deliberately holding back power they could provide, creating fake scarcity. These schemes cost consumers billions. They're hard to detect, and traditional investigations are slow and expensive.</p>
@@ -528,10 +528,10 @@ Looking for the key player...
 <div class="v-accent"></div>
 <div class="strip-inner">
 <p class="strip-tag sr from-left">Antitrust Policy</p>
-<h2 class="strip-title sr from-left">When Authorities Crack Down —<br>Does It <em>Actually Last?</em></h2>
+<h2 class="strip-title sr from-left">When Authorities Crack Down:<br>Does It <em>Actually Last?</em></h2>
 <p class="strip-sub sr">Job Market Paper</p>
 <div class="strip-insight sr scale-in">
-<p>Cracking down on a cartel changed behaviour — but the effects were <strong>temporary, not permanent.</strong> Breaking a cartel matters, but it may not be enough on its own.</p>
+<p>Cracking down on a cartel changed behaviour, but the effects were <strong>temporary, not permanent.</strong> Breaking a cartel matters, but it may not be enough on its own.</p>
 </div>
 <div class="strip-body sr">
 <p><strong>The problem.</strong> For years, road construction companies in Québec secretly divided up public contracts among themselves — a cartel that cost taxpayers hundreds of millions of dollars. When authorities launched an investigation and dismantled it, a key question remained: did the crackdown actually make the market more competitive in the long run?</p>
