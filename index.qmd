@@ -19,8 +19,13 @@ about:
 
 <div style="text-align: justify;">
 
-PhD Candidate specializing in **competition economics** at [Universite de Bourgogne](https://www.ube.fr/en/home/). Working at [CESAER](https://cesaer.dijon.hub.inrae.fr/)
 
-My work combines **causal inference, machine learning, and network analysis** to study collusive behavior. I conduct econometric analysis to support antitrust enforcement and policy design.
+I am an applied microeconomist and final year PhD at the [Universite de Bourgogne](https://www.ube.fr/en/home/). My research mainly focuses on **competition economics**. I have had the opportunity to complete research stays at the University of Fribourg in Switzerland. I have also had the pleasure of contributing to the [Government Transparency Institute](https://www.govtransparency.eu/).
+
+My work combines causal inference, machine learning, and network analysis to study collusive behavior. I conduct econometric analysis to support antitrust enforcement and policy design.
+
+If you would like to grab a coffee, play chess, or chat, feel free to reach out!
+
 </div>
+
 
