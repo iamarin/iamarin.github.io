@@ -3,30 +3,21 @@ project:
   output-dir: docs
   resources:
     - files/CV_IvanMARIN.pdf
+    - images/bogoss.png
 
 website:
   title: "Ivan Marin"
   # site-url: "https://www.elcontrafactual.fr"
   repo-url: https://github.com/iamarin/iamarin.github.io
-  navbar:
-    left:
-      - text: "Home"
-        href: index.qmd
-      - text: "What I do?"
-        href: story2.qmd
-      # - text: "What I do?"
-      #   href: outreach.qmd
-      - text: "Research"
-        href: research.qmd
-      # - text: "Visual"
-      #   href: visual.qmd
-      
+  search: false
+  # Navigation lives in the left sidebar: _includes/sidebar.html
+  # (Hidden pages: outreach.qmd, visual.qmd)
 
 format:
   html:
     theme: cosmo
     css: styles.css
-    toc: true
-
-
-
+    toc: false
+    page-layout: article
+    include-before-body: _includes/sidebar.html
+    include-after-body: _includes/footer.html

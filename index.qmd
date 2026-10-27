@@ -1,31 +1,13 @@
 ---
 title: "Ivan Marin"
-image: "images/bogoss.png"
-execute: 
+pagetitle: "Ivan Marin"
+execute:
   echo: false
   warning: false
-about:
-  template: jolla
-  links:
-    - text: '<i class="bi bi-github"></i> GitHub'
-      href: https://github.com/iamarin
-    - text: '<i class="bi bi-linkedin"></i> LinkedIn'
-      href: https://www.linkedin.com/in/ivan-abdel-marin/
-    - text: '<i class="bi bi-envelope"></i> Email'
-      href: mailto:ivanmrn5@gmail.com
-    - text: '<i class="bi bi-file-earmark-pdf"></i> CV'
-      href: files/CV_IvanMARIN.pdf
 ---
-
-<div style="text-align: justify;">
-
 
 I am an applied microeconomist and final year PhD at the [Universite de Bourgogne](https://www.ube.fr/en/home/). My research mainly focuses on **competition economics**. I have had the opportunity to complete research stays at the University of Fribourg in Switzerland. I have also had the pleasure of contributing to the [Government Transparency Institute](https://www.govtransparency.eu/).
 
 My work combines causal inference, machine learning, and network analysis to study collusive behavior. I conduct econometric analysis to support antitrust enforcement and policy design.
 
 If you would like to grab a coffee, play chess, or chat, feel free to reach out!
-
-</div>
-
-

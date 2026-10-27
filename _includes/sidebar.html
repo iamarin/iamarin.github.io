@@ -1,0 +1,43 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<aside class="side">
+  <div class="side__id">
+    <img class="side__portrait" src="/images/bogoss.png" alt="Ivan Marin">
+    <div class="side__idtext">
+      <div>
+        <div class="side__name">Ivan<br>Marin</div>
+        <div class="side__role">PhD candidate in Economics</div>
+        <div class="side__role"><a href="https://www.ube.fr/en/home/">Université de Bourgogne</a></div>
+      </div>
+      <div class="rule"></div>
+      <div class="side__contact">
+        <span>ivanmrn5 [at] gmail.com</span>
+        <span class="side__social">
+          <a href="https://github.com/iamarin">GitHub</a>
+          <a href="https://www.linkedin.com/in/ivan-abdel-marin/">LinkedIn</a>
+          <a href="mailto:ivanmrn5@gmail.com">Email</a>
+        </span>
+      </div>
+      <a class="btn" href="/files/CV_IvanMARIN.pdf">CV</a>
+    </div>
+  </div>
+
+  <nav class="card nav">
+    <a class="navitem" href="/index.html">Home</a>
+    <a class="navitem" href="/story2.html">What I do?</a>
+    <a class="navitem" href="/research.html">Research</a>
+  </nav>
+</aside>
+
+<script>
+  // Highlight the nav entry for the current page; "/" counts as Home.
+  (function () {
+    var page = function (path) { return path.replace(/\/$/, '/index.html'); };
+    var here = page(location.pathname);
+    [].forEach.call(document.querySelectorAll('.navitem'), function (a) {
+      if (page(a.pathname) === here) a.classList.add('on');
+    });
+  })();
+</script>

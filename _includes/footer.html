@@ -1,0 +1,13 @@
+<div class="foot">Hosted on GitHub Pages</div>
+
+<script>
+  // External links open in a new tab.
+  document.addEventListener('DOMContentLoaded', function () {
+    [].forEach.call(document.links, function (a) {
+      if (a.protocol !== 'http:' && a.protocol !== 'https:') return;
+      if (a.host === location.host) return;
+      a.target = '_blank';
+      a.rel = 'noopener';
+    });
+  });
+</script>

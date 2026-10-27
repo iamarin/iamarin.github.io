@@ -8,10 +8,10 @@ toc: false
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-#quarto-content { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+/* Sits in the main column next to the site sidebar (layout in styles.css). */
 main.content, #quarto-document-content { padding: 0 !important; }
 .quarto-title-block { display: none !important; }
-body { overflow-x: hidden; background: #060f0e; }
+body { overflow-x: hidden; }
 
 .sr { opacity: 0; transform: translateY(32px); transition: opacity 0.85s ease, transform 0.85s ease; }
 .sr.from-left  { transform: translateX(-55px); }
